@@ -16,7 +16,7 @@ coefficients.
 
 | Folder | Contents |
 |---|---|
-| `00_说明/` | Full methodology write-up, version-history notes, known open items |
+| `00_说明/` | Full methodology write-up, version-history notes, known open items, plus `支撑材料/` — the eight original author-written methodology documents |
 | `01_模式配置/` | FLEXPART `flexwrf.input` files across the parameter-sensitivity chain (v3 → combo_full) |
 | `02_脚本/` | Source-region definitions, release construction, calibration, plotting, diagnostics |
 | `03_结果表/` | Release manifests, source-contribution and receptor-response tables, dust-top retrievals |
