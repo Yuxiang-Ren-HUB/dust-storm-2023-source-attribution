@@ -1,0 +1,1197 @@
+=====================FORMER PATHNAMES FILE===================
+/home/rencheng/flexpart_runs_v3/MG_fwd_combo_full_p8/output/
+/home/rencheng/WRF_dust/
+/home/rencheng/AVAILABLE_nudged
+=============================================================
+=====================FORMER COMMAND FILE=====================
+    1                LDIRECT:          1 for forward simulation, -1 for backward simulation
+    20230319 000000  YYYYMMDD HHMISS   beginning date of simulation
+    20230327 000000  YYYYMMDD HHMISS   ending date of simulation
+    3600             SSSSS  (int)      output every SSSSS seconds
+    3600             SSSSS  (int)      time average of output (in SSSSS seconds)
+    900              SSSSS  (int)      sampling rate of output (in SSSSS seconds)
+    999999999        SSSSS  (int)      time constant for particle splitting (in seconds)
+    900              SSSSS  (int)      synchronisation interval of flexpart (in seconds)
+    10.              CTL    (real)     factor by which time step must be smaller than tl
+    10               IFINE  (int)      decrease of time step for vertical motion by factor ifine
+    1                IOUT              1 concentration, 2 mixing ratio, 3 both, 4 plume traject, 5=1+4
+    1                IPOUT             particle dump: 0 no, 1 every output interval, 2 only at end
+    0                LSUBGRID          subgrid terrain effect parameterization: 1 yes, 0 no
+    0                LCONVECTION       convection: 3 yes, 0 no
+    3600.            DT_CONV  (real)   time interval to call convection, seconds
+    1                LAGESPECTRA       age spectra: 1 yes, 0 no
+    0                IPIN              continue simulation with dumped particle data: 1 yes, 0 no
+    0                IFLUX             calculate fluxes: 1 yes, 0 no
+    0                IOUTPUTFOREACHREL CREATE AN OUPUT FILE FOR EACH RELEASE LOCATION: 1 YES, 0 NO
+    0                MDOMAINFILL       domain-filling trajectory option: 1 yes, 0 no, 2 strat. o3 tracer
+    1                IND_SOURCE        1=mass unit , 2=mass mixing ratio unit
+    2                IND_RECEPTOR      1=mass unit , 2=mass mixing ratio unit
+    0                NESTED_OUTPUT     shall nested output be used? 1 yes, 0 no
+    0                LINIT_COND   INITIAL COND. FOR BW RUNS: 0=NO,1=MASS UNIT,2=MASS MIXING RATIO UNIT
+    1                TURB_OPTION       0=no turbulence; 1=diagnosed as in flexpart_ecmwf; 2 and 3=from tke.
+    1                LU_OPTION         0=old landuse (IGBP.dat); 1=landuse from WRF
+    0                CBL SCHEME        0=no, 1=yes. works if TURB_OPTION=1
+    0                SFC_OPTION        0=default computation of u*, hflux, pblh, 1=from wrf
+    0                WIND_OPTION       0=snapshot winds, 1=mean winds,2=snapshot eta-dot,-1=w based on divergence
+    0                TIME_OPTION       1=correction of time validity for time-average wind,  0=no need
+    1                OUTGRID_COORD     0=wrf grid(meters), 1=regular lat/lon grid
+    1                RELEASE_COORD     0=wrf grid(meters), 1=regular lat/lon grid
+    2                IOUTTYPE          0=default binary, 1=ascii (for particle dump only),2=netcdf
+    3                NCTIMEREC (int)   Time frames per output file, only used for netcdf
+    0                VERBOSE           VERBOSE MODE,0=minimum, 100=maximum
+=====================FORMER AGECLASESS FILE==================
+    1                NAGECLASS        number of age classes
+    999999           SSSSSS  (int)    age class in SSSSS seconds
+=====================FORMER OUTGRID FILE=====================
+    70.00            OUTLONLEFT      geographical longitude of lower left corner of output grid
+    15.00            OUTLATLOWER     geographical latitude of lower left corner of output grid
+    280              NUMXGRID        number of grid points in x direction (= # of cells )
+    160              NUMYGRID        number of grid points in y direction (= # of cells )
+    0                OUTGRIDDEF      outgrid defined 0=using grid distance, 1=upperright corner coordinate
+    0.2500           DXOUTLON        grid distance in x direction or upper right corner of output grid
+    0.2500           DYOUTLON        grid distance in y direction or upper right corner of output grid
+    5                NUMZGRID        number of vertical levels
+    100.0            LEVEL           height of level (upper boundary)
+    500.0            LEVEL           height of level (upper boundary)
+   1000.0            LEVEL           height of level (upper boundary)
+   2000.0            LEVEL           height of level (upper boundary)
+   5000.0            LEVEL           height of level (upper boundary)
+=====================FORMER RECEPTOR FILE====================
+    0                NUMRECEPTOR     number of receptors
+=====================FORMER SPECIES FILE=====================
+     1               NUMTABLE        number of variable properties. The following lines are fixed format
+XXXX|NAME    |decaytime |wetscava  |wetsb|drydif|dryhenry|drya|partrho  |parmean|partsig|dryvelo|weight |
+    DUST            -9.9    5.0E-06  0.80   -9.9                 2.6E+03 1.3E-06 2.0E+00   -9.90  100.00
+=====================FORMER RELEEASES FILE===================
+   1                NSPEC           total number of species emitted
+   0                EMITVAR         1 for emission variation
+   1                LINK            index of species in file SPECIES
+   94                NUMPOINT        number of releases
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   470           NPART (int)     total number of particles to be released
+  1.8693E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b753
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.3366E+03         XMASS (real)    total mass emitted, species 1
+MG_2112_b754
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    104.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    105.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.8039E+03         XMASS (real)    total mass emitted, species 1
+MG_2112_b755
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   103           NPART (int)     total number of particles to be released
+  4.0891E+04         XMASS (real)    total mass emitted, species 1
+MG_2112_b756
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.6918E+04         XMASS (real)    total mass emitted, species 1
+MG_2112_b757
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   470           NPART (int)     total number of particles to be released
+  1.8693E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b758
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   470           NPART (int)     total number of particles to be released
+  1.8693E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b759
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   470           NPART (int)     total number of particles to be released
+  1.8693E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b760
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   456           NPART (int)     total number of particles to be released
+  1.8109E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b761
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.0609E+04         XMASS (real)    total mass emitted, species 1
+MG_2112_b762
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   470           NPART (int)     total number of particles to be released
+  1.8693E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b763
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   456           NPART (int)     total number of particles to be released
+  1.8109E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b764
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   470           NPART (int)     total number of particles to be released
+  1.8693E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b765
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   420           NPART (int)     total number of particles to be released
+  1.6683E+05         XMASS (real)    total mass emitted, species 1
+MG_2112_b766
+20230321 120000   ID1, IT1        beginning date and time of release
+20230321 130000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   115           NPART (int)     total number of particles to be released
+  4.5797E+04         XMASS (real)    total mass emitted, species 1
+MG_2112_b767
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   264           NPART (int)     total number of particles to be released
+  1.0502E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b768
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b769
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b770
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b771
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   237           NPART (int)     total number of particles to be released
+  9.4375E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b772
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   207           NPART (int)     total number of particles to be released
+  8.2347E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b773
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b774
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b775
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   372           NPART (int)     total number of particles to be released
+  1.4781E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b776
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.3131E+02         XMASS (real)    total mass emitted, species 1
+MG_2113_b777
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   208           NPART (int)     total number of particles to be released
+  8.2810E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b778
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b779
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   154           NPART (int)     total number of particles to be released
+  6.1298E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b780
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b781
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b782
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b783
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.6316E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b784
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  9.2525E+02         XMASS (real)    total mass emitted, species 1
+MG_2113_b785
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   441           NPART (int)     total number of particles to be released
+  1.7510E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b786
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   398           NPART (int)     total number of particles to be released
+  1.5822E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b787
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  4.6262E+02         XMASS (real)    total mass emitted, species 1
+MG_2113_b788
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    112.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    113.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   363           NPART (int)     total number of particles to be released
+  1.4434E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b789
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    112.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    113.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b790
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    112.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    113.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   215           NPART (int)     total number of particles to be released
+  8.5585E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b791
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    113.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    114.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  6.7080E+03         XMASS (real)    total mass emitted, species 1
+MG_2113_b792
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    113.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    114.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   162           NPART (int)     total number of particles to be released
+  6.4536E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b793
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b794
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b795
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    113.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    114.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  8.5585E+03         XMASS (real)    total mass emitted, species 1
+MG_2113_b796
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b797
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b798
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b799
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    100.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    101.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  9.9464E+03         XMASS (real)    total mass emitted, species 1
+MG_2113_b800
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    100.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    101.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.8220E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b801
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    101.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    102.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   299           NPART (int)     total number of particles to be released
+  1.1866E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b802
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    101.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    102.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   105           NPART (int)     total number of particles to be released
+  4.1867E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b803
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    102.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    103.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   175           NPART (int)     total number of particles to be released
+  6.9625E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b804
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    102.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    103.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   310           NPART (int)     total number of particles to be released
+  1.2306E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b805
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    103.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    104.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.7472E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b806
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    103.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    104.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   430           NPART (int)     total number of particles to be released
+  1.7094E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b807
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    104.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    105.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  1.5960E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b808
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    104.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    105.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   299           NPART (int)     total number of particles to be released
+  1.1866E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b809
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    104.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    105.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b810
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    104.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    105.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   435           NPART (int)     total number of particles to be released
+  1.7279E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b811
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    103.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    104.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   449           NPART (int)     total number of particles to be released
+  1.7857E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b812
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.3131E+03         XMASS (real)    total mass emitted, species 1
+MG_2113_b813
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    104.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    105.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.7757E+03         XMASS (real)    total mass emitted, species 1
+MG_2113_b814
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.6547E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b815
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b816
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b817
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b818
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b819
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   102           NPART (int)     total number of particles to be released
+  4.0480E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b820
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.0302E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b821
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b822
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   451           NPART (int)     total number of particles to be released
+  1.7927E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b823
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   466           NPART (int)     total number of particles to be released
+  1.8505E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b824
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    105.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    106.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   415           NPART (int)     total number of particles to be released
+  1.6516E+05         XMASS (real)    total mass emitted, species 1
+MG_2113_b825
+20230321 130000   ID1, IT1        beginning date and time of release
+20230321 140000   ID2, IT2        ending date and time of release
+    106.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    107.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   114           NPART (int)     total number of particles to be released
+  4.5337E+04         XMASS (real)    total mass emitted, species 1
+MG_2113_b826
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   205           NPART (int)     total number of particles to be released
+  8.1572E+04         XMASS (real)    total mass emitted, species 1
+MG_2114_b827
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   459           NPART (int)     total number of particles to be released
+  1.8228E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b828
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   444           NPART (int)     total number of particles to be released
+  1.7659E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b829
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   459           NPART (int)     total number of particles to be released
+  1.8228E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b830
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    109.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    110.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   260           NPART (int)     total number of particles to be released
+  1.0345E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b831
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   444           NPART (int)     total number of particles to be released
+  1.7659E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b832
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   459           NPART (int)     total number of particles to be released
+  1.8228E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b833
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   459           NPART (int)     total number of particles to be released
+  1.8228E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b834
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   366           NPART (int)     total number of particles to be released
+  1.4560E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b835
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     40.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     41.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  2.2786E+02         XMASS (real)    total mass emitted, species 1
+MG_2114_b836
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   152           NPART (int)     total number of particles to be released
+  6.0382E+04         XMASS (real)    total mass emitted, species 1
+MG_2114_b837
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    108.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    109.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   234           NPART (int)     total number of particles to be released
+  9.2965E+04         XMASS (real)    total mass emitted, species 1
+MG_2114_b838
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   459           NPART (int)     total number of particles to be released
+  1.8228E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b839
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    107.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    108.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   204           NPART (int)     total number of particles to be released
+  8.1117E+04         XMASS (real)    total mass emitted, species 1
+MG_2114_b840
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   459           NPART (int)     total number of particles to be released
+  1.8228E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b841
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    110.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     45.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    111.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     46.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  3.5773E+04         XMASS (real)    total mass emitted, species 1
+MG_2114_b842
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     41.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     42.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   100           NPART (int)     total number of particles to be released
+  9.1142E+02         XMASS (real)    total mass emitted, species 1
+MG_2114_b843
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     42.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     43.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   434           NPART (int)     total number of particles to be released
+  1.7249E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b844
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     43.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     44.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   444           NPART (int)     total number of particles to be released
+  1.7659E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b845
+20230321 140000   ID1, IT1        beginning date and time of release
+20230321 150000   ID2, IT2        ending date and time of release
+    111.0000         XPOINT1 (real)  longitude [deg] of lower left corner
+     44.0000         YPOINT1 (real)  latitude [deg] of lower left corner
+    112.0000         XPOINT2 (real)  longitude [deg] of upper right corner
+     45.0000         YPOINT2 (real)  latitude [DEG] of upper right corner
+         1           KINDZ  (int)  1 for m above ground, 2 for m above sea level, 3 pressure
+     0.000         ZPOINT1 (real)  lower z-level
+  1900.000         ZPOINT2 (real)  upper z-level  (source-specific, Himawari dust-top retrieval)
+   392           NPART (int)     total number of particles to be released
+  1.5585E+05         XMASS (real)    total mass emitted, species 1
+MG_2114_b846

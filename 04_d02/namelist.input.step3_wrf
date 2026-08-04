@@ -1,0 +1,241 @@
+! ============================================================================
+! 选项 A: 锋面相位受控检验run
+!
+! 目的: 检验"16 天无 nudging 自由积分导致锋面偏早 8-15 h"这一假设。
+!       诊断依据: 沿河西走廊 6 点, WRF 10 m 风涌升较 ERA5 偏早 8-12 h(逐时,
+!       双方同判据), 700 hPa 急流偏早 8-15 h(6 h 分辨率, 佐证)。
+!       见 corridor_wrf_vs_era5.csv / check_700hpa.csv
+!
+! 设计原则: 这是受控实验, 只改必要项。凡是会改变物理/数值解的设置一律不动,
+!           否则相位若改善也无法归因。待 A 成功后再进生产run(见文末 TODO)。
+!
+! 相对原 namelist.input 的改动(共 5 处, 逐条标 [CHANGE]):
+!   1. 时间窗 03-13~03-29(16d) -> 03-17~03-27(10d)     降低机时
+!   2. max_dom 2 -> 1                                   d02 未被 FLEXPART 使用
+!   3. &fdda 空 -> grid_fdda=1                          ★被检验的对象
+!   4. &dynamics 加 do_avgflx_em=1                      FLEXPART 需要时间平均质量通量
+!   5. time_step 162 -> 150                             3600/150=24 整除, 输出落整点
+!
+! 前置条件: grid_fdda 需要 real.exe 生成 wrffdda_d01, 因此必须
+!           (a) met_em.d01.2023-03-17_00 ~ 2023-03-27_00 齐全(若已删, 用
+!               era5_pl_20230313_20230324.grib + era5_sl_* 重跑 WPS), 且
+!           (b) 带本 namelist 重新执行 real.exe, 不能复用旧的 wrfinput/wrfbdy。
+!
+! 执行: ungrib+metgrid(如需) -> real.exe -> wrf.exe
+! ============================================================================
+
+ &time_control
+ run_days                            = 4,                      ! [CHANGE] 16 -> 10
+ restart_interval                    = 720,
+ run_hours                           = 0,                      
+ run_minutes                         = 0,
+ run_seconds                         = 0,
+ start_year                          = 2023, 2023,             
+ start_month                         = 03, 03,                 
+ start_day                           = 19, 19,                 ! [CHANGE] 13 -> 17 (事件前 2 天 spin-up)
+ start_hour                          = 00, 00,                 
+ start_minute                        = 00,
+ start_second                        = 00,
+ end_year                            = 2023, 2023,             
+ end_month                           = 03, 03,                 
+ end_day                             = 23, 23,                 ! [CHANGE] 29 -> 27
+ end_hour                            = 00, 00,                 
+ end_minute                          = 00,
+ end_second                          = 00,
+ interval_seconds                    = 3600,                   
+ input_from_file                     = .true., .true.,
+ history_interval                    = 60,    60,            ! [CHANGE] d02 原为 360, FLEXPART 用不了
+ frames_per_outfile                  = 1,     1,
+ restart                             = .false.,
+ io_form_history                     = 2,
+ io_form_restart                     = 2,
+ io_form_input                       = 2,
+ io_form_boundary                    = 2,
+ debug_level                         = 0,
+ /
+
+ &domains
+ time_step                           = 50,                     ! [CHANGE] 162 -> 150, 3600/150=24
+ time_step_fract_num                 = 0,
+ time_step_fract_den                 = 1,
+ max_dom                             = 1,                      ! ★见下方"max_dom 在三个步骤间切换"
+ e_we                                = 463,                    
+ e_sn                                = 253,                    
+ e_vert                              = 35,    35,            ! ndown 要求两域垂直层完全一致
+ p_top_requested                     = 5000,
+ num_metgrid_levels                  = 38,
+ num_metgrid_soil_levels             = 4,
+ dx                                  = 9000,                   
+ dy                                  = 9000,                   
+ grid_id                             = 1,                      
+ parent_id                           = 0,                      
+ i_parent_start                      = 1,                      
+ j_parent_start                      = 1,                      
+ parent_grid_ratio                   = 1,                      
+ parent_time_step_ratio              = 1,                      
+ feedback                            = 0,                    ! [CHANGE] 1 -> 0, 单向嵌套, d01 不受 d02 影响
+ smooth_option                       = 1,                    ! [CHANGE] 0 -> 1, 嵌套区内父地形做 1-2-1 平滑
+ /
+
+! ---------------------------------------------------------------------------
+! 9 km 子域范围的由来(见 namelist.input.step9km 的完整说明):
+!   目标覆盖 92-108E / 34-43N + 5 个父格点余量, 即河西走廊全段 + 兰州。
+!   对应 d01 索引: 走廊西端 i=96, 张掖 i=117, 走廊东端 i=128, 兰州 i=127。
+!   189x135 格点 @9 km ~ 1700x1215 km; 距父域边界最近 52 个父格点(~1400 km),
+!   走廊不会落进侧边界松弛带。
+!
+! max_dom 在三个步骤间切换(ndown 单向嵌套流程):
+!   步骤1  max_dom=2  real.exe   -> wrfinput_d01, wrfbdy_d01, wrfinput_d02
+!   步骤2  max_dom=1  wrf.exe    -> wrfout_d01_*  (27 km, 带 nudging)
+!   步骤3  max_dom=2  ndown.exe  -> 由 wrfout_d01 + wrfinput_d02 生成子域初边界
+!   步骤4  改用 namelist.input.step9km 跑 9 km(见该文件)
+! ---------------------------------------------------------------------------
+
+ &physics
+ mp_physics                          = 6,     6,
+ ra_lw_physics                       = 3,     3,
+ ra_sw_physics                       = 3,     3,
+ radt                                = 30,    10,
+ sf_sfclay_physics                   = 1,     1,
+ sf_surface_physics                  = 2,     2,
+ bl_pbl_physics                      = 1,     1,
+ bldt                                = 0,     0,
+ cu_physics                          = 1,     0,            ! 9 km 关积云, 与原 d02 一致
+ cudt                                = 5,     0,
+ isfflx                              = 1,
+ ifsnow                              = 1,
+ icloud                              = 1,
+ surface_input_source                = 1,
+ num_soil_layers                     = 4,
+ sf_urban_physics                    = 0,
+ /
+
+! ---------------------------------------------------------------------------
+! [CHANGE] 原本整段为空 —— 这是本次检验的核心
+!
+! 策略: 只在自由大气 nudge, 边界层内完全放开。
+!   目的是把天气尺度相位钉回 ERA5, 同时不抹掉近地层的中尺度信号
+!   (走廊地形通道、锋面涌升), 否则等于用 ERA5 覆盖了 WRF 的全部增益。
+!
+! guv/gt = 3.0e-4 s^-1 是 WRF 标称值, e-folding 约 1 h。若结果显示相位仍偏,
+! 再考虑加大到 6.0e-4; 若中尺度结构被抹平, 降到 1.0e-4。
+! gq 设 0: 湿度 nudging 对本次干沙尘过程无必要, 且会干扰 PBL 演变。
+! ---------------------------------------------------------------------------
+ &fdda
+ grid_fdda                           = 0,                      ! 只 nudge 父域; 子域靠边界继承正确相位
+ gfdda_inname                        = "wrffdda_d01",
+ gfdda_interval_m                    = 360,                  ! 与 interval_seconds=21600 一致
+ gfdda_end_h                         = 240,   ! 全程 10 天 = 240 h
+ io_form_gfdda                       = 2,
+ fgdt                                = 0,                    ! 每步都算 nudging 项
+ if_no_pbl_nudging_uv                = 1,                    ! PBL 内不 nudge 风
+ if_no_pbl_nudging_t                 = 1,                    ! PBL 内不 nudge 温度
+ if_no_pbl_nudging_q                 = 1,
+ if_zfac_uv                          = 1,
+ k_zfac_uv                           = 10,                   ! 第 10 层以下不 nudge 风
+ if_zfac_t                           = 1,
+ k_zfac_t                            = 10,
+ if_zfac_q                           = 1,
+ k_zfac_q                            = 10,
+ guv                                 = 0.0003,
+ gt                                  = 0.0003,
+ gq                                  = 0.0000,               ! 关闭湿度 nudging
+ if_ramping                          = 0,
+ /
+
+ &dynamics
+ w_damping                           = 0,
+ diff_opt                            = 1,                    ! 不动(见文末 TODO)
+ km_opt                              = 4,
+ diff_6th_opt                        = 0,
+ diff_6th_factor                     = 0.12,
+ base_temp                           = 290.,
+ damp_opt                            = 0,                    ! 不动(见文末 TODO)
+ zdamp                               = 5000.,
+ dampcoef                            = 0.2,
+ khdif                               = 0,
+ kvdif                               = 0,
+ non_hydrostatic                     = .true.,
+ moist_adv_opt                       = 1,
+ scalar_adv_opt                      = 1,
+ do_avgflx_em                        = 1,                    ! [CHANGE] 新增: 输出 AVGFLX_RUM/RVM
+ /                                                           !   使 FLEXPART 可用 WIND_OPTION=1
+
+ &bdy_control
+ spec_bdy_width                      = 5,
+ spec_zone                           = 1,
+ relax_zone                          = 4,
+ specified                           = .true., .false.,
+ nested                              = .false., .true.,
+ /
+
+ &grib2
+ /
+
+ &namelist_quilt
+ nio_tasks_per_group                 = 0,
+ nio_groups                          = 1,
+ /
+
+! ============================================================================
+! 窗口 03-17 00Z ~ 03-27 00Z 对 FLEXPART 两类 run 的覆盖情况
+!
+! 正向(扩散): 释放 03-19 00Z(TK/TH) ~ 03-22 11Z(MG 窗口末), 追踪到 03-27 00Z。
+!   最短的 MG 释放仍有 4.5 天追踪期, 足够覆盖 03-23 的重点研究期末与衰减段。
+!   flexwrf.input 的 COMMAND 结束时间原为 20230328 000000, 超出气象场覆盖,
+!   必须同步改到 20230327 000000 或更早, 否则末段读不到 wrfout 会中断。
+!
+! 后向(溯源): 受体并非铺满 03-19~03-23, 而是集中在两站各自峰值时段
+!   (见 receptor_release_plan.csv):
+!       兰州 36 个受体  03-20 12Z ~ 03-21 23Z   回溯深度 3.5 ~ 5.0 d
+!       北京 24 个受体  03-21 12Z ~ 03-22 11Z   回溯深度 4.5 ~ 5.5 d
+!   无一受体深度 < 72 h。按典型输送速度核对最远源区:
+!       兰州 <- TK 西缘 ~2400 km : 55 h @12 m/s / 83 h @8 m/s, 最浅 84 h 刚覆盖
+!       北京 <- TK 西缘 ~3500 km : 81 h @12 m/s, 深度 108-131 h 有余量
+!   -> 03-17 起报对现有受体集合是够的。
+!
+!   已知折损(须在文中说明): 现有后向 run 起报为 03-16(见 LZ_bwd_v2_flexwrf.input),
+!   深度 4.5~6.0 d; 改为 03-17 后降到 3.5~5.0 d, 少 1 天。影响集中在
+!   "慢轨迹抵达 TK 西缘"这一端, 即 TK 贡献可能被轻微截断(方向: 低估 TK)。
+!   注意这与正向 run 已知的窗口截断(TK 仅捕获 61.3% DUEM 质量)方向相同 ——
+!   两种方法若都低估 TK, 表面上的"前后向一致"可能是同源假象而非相互验证。
+!   若要消除, 把起报提前到 03-16 即可(ERA5 自 03-13 00Z 起可用, 仅多 1 天机时)。
+!
+! ============================================================================
+! 判读标准(先看这个, 再决定要不要做完整生产run)
+!
+!   主判据 —— 不是 WRF 自己的锋面时刻, 而是 FLEXPART 的沙尘到达时刻。
+!   nudging 必然把 WRF 拉向 ERA5, 所以"锋面相位改善"是同义反复, 不构成验证。
+!
+!   步骤:
+!     1. 用新 wrfout 重跑 corridor_wrf_vs_era5.py, 确认走廊 6 点偏差从
+!        -8~-12 h 收敛到 |Δ| < 3 h。这只是前提, 不是结论。
+!     2. 用新气象场重跑 AH 源的正向 run(AH 是最该供给 03-20 兰州峰的源;
+!        释放窗口 03-20 00Z~03-21 12Z 完整落在本 run 时间窗内)。
+!        注意 flexwrf.input 的 COMMAND 结束时间原为 20230328 000000, 超出本
+!        run 的气象场覆盖(至 20230327 000000), 必须同步改到 20230327 000000
+!        或更早, 否则 FLEXPART 会在末段读不到 wrfout 而中断。
+!        起始时间原为 20230319 000000, 落在本 run 内, 不必改。
+!     3. 重跑 plot_front_lag.py, 看兰州模拟起涨是否从 03-21 11Z 前移到
+!        03-20 14Z 附近。
+!
+!   判读:
+!     滞后从 +21 h 收敛到 |lag| < 6 h  -> 假设成立, 做完整生产run;
+!     滞后仍 > 12 h                     -> 相位不是主因, 转查释放窗口截断
+!                                          (AH 仅捕获 81.6% DUEM 质量)与
+!                                          0-100 m 释放层, 或直接转选项 C
+!                                          (ERA5 直接驱动 FLEXPART)。
+!
+! 已知混淆项(结果解读时必须说明):
+!   - 去掉 d02 后 feedback=1 的双向反馈也随之消失, d01 解本身会有微小变化,
+!     严格说不是纯粹的 nudging 单因子实验。若要完全干净, 需另跑一个
+!     "仅去 d02、不加 nudging"的对照。机时便宜, 建议一并做。
+!   - 时间窗从 03-13 改到 03-17, 初始场不同, 也非纯单因子。
+!
+! TODO(仅在 A 成功、进生产run 时才加, 现在加会污染归因):
+!   e_vert       35 -> 45,  低层加密, 3 km 以下现仅 8-10 层
+!   topo_wind    -> 1,      YSU+27 km 平滑地形导致近地风偏强 1.5-2 倍
+!   damp_opt     -> 3,      p_top 50 hPa 配高原陡地形, 现无上边界阻尼
+!   diff_opt     -> 2,      实资料run 应沿真实高度面扩散
+!   FLEXPART     WIND_OPTION 0 -> 1, 配合本文件已加的 do_avgflx_em=1
+! ============================================================================
