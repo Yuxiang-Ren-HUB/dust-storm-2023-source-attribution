@@ -4,7 +4,8 @@ Code and results supporting:
 
 **"Dual-Source Transport, Vertical Evolution, and Topographic Modulation of the
 March 2023 East Asian Dust Storm in the Context of 2000–2024 Spring Dust Variability"**
-(manuscript atmosphere-4373208)
+
+Published: *Atmosphere* 2026, 17(8), 740. https://www.mdpi.com/2073-4433/17/8/740
 
 FLEXPART-WRF forward/backward trajectory simulation with FDDA-nudged meteorology,
 objectively-derived TK1 (Tarim Basin) / TK2 (Hexi Corridor) / MG (Mongolian Gobi)

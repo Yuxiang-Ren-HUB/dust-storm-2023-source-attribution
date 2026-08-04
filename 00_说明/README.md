@@ -2,7 +2,8 @@
 
 支撑论文: **"Dual-Source Transport, Vertical Evolution, and Topographic Modulation of the
 March 2023 East Asian Dust Storm in the Context of 2000–2024 Spring Dust Variability"**
-(atmosphere-4373208)
+
+已发表: *Atmosphere* 2026, 17(8), 740. https://www.mdpi.com/2073-4433/17/8/740
 
 生成日期: 2026-08-05,2026-08-05 补充读取 `支撑材料/` 内八份方法学 Word 文档后重写
 
@@ -29,7 +30,12 @@ March 2023 East Asian Dust Storm in the Context of 2000–2024 Spring Dust Varia
 | `站点筛选与窗口选取说明.docx` | PM10 站点剔除依据、受体窗口判据、FLEXPART 释放高度(0–100m)的观测验证 |
 | `CALIOP垂直结构验证.docx` | 用 CALIOP 独立检验垂直结构对柱量结论的影响,含一次自我纠错(池化版→时间匹配版) |
 | `葵花卫星观测能力检验.docx` | 定量检验 Himawari 红外沙尘判识的探测能力边界:定位置信、定量级否决 |
-| `Response_to_Reviewers.docx` | 逐条审稿意见回复。**注意**:文中多处标有"⚠ [NEEDS AUTHOR INPUT/VERIFICATION]"占位符(R1-3、R2-1、R3 多条),说明这是回复信的工作稿而非确认最终定稿逐字版本 —— 若要引用具体回复措辞,请先核实是否为投稿的最终版本。 |
+
+> **未收录**:`atmosphere_revision_figs\用到的图\` 下原本还有一份 `Response_to_Reviewers.docx`,
+> 内容含多处 "⚠ NEEDS AUTHOR INPUT/VERIFICATION" 占位符,经核实并非投稿的最终逐条回复信
+> (真正提交给期刊的回复信在桌面 `最后的毕业论文\小论文\第五章\大修\材料\` 下,分成
+> `response_to_reviewer1_*.docx` / `response_to_reviewer2.docx` / `response_to_reviewer3_major.docx`
+> 等多个文件,不在本次归档范围内),故未一并收录进本仓库,避免误导为定稿文本。
 
 ## 二、方法论演变主线
 
@@ -167,8 +173,12 @@ FINAL_SIM_v3/
 
 ## 五、尚未确认/待作者补充
 
-1. `source_regions.py` 里 `CALIB_COMBO_PRELIM` 常量未同步更新(见 2.4 节)
-2. `Response_to_Reviewers.docx` 内多处 "⚠ NEEDS AUTHOR INPUT/VERIFICATION" 占位符
-   是否已在最终投稿版本中填写确认(见支撑材料表格备注)
-3. `combo_full` 是否已是最终定稿,还是后面 `combo_full_p0`–`p11` 系综还有进一步处理
-4. `04_d02`(WRF 27km→9km 双重嵌套)的地形分辨率检验结论是否已完成并写入正文
+1. `source_regions.py` 里 `CALIB_COMBO_PRELIM` 常量未同步更新(见 2.4 节)——论文已发表
+   使用的是 23.37×/22.07×(对应正文 Lanzhou R=0.81、Beijing R=0.74),这个常量本身仍是
+   过期的 1/60 粒子测试值,建议尽快修正,避免以后被误用
+2. `combo_full` 是否已是最终定稿,还是后面 `combo_full_p0`–`p11` 系综还有进一步处理
+3. `04_d02`(WRF 27km→9km 双重嵌套)的地形分辨率检验结论是否已完成并写入正文
+4. 论文正文摘要提到的"FFT wavelength test"与 §3.5 实际只有 3 项地形诊断(无 FFT 分析)
+   之间的不一致、以及贺兰山屏障强度数字(§3.5 的 0.77/23% vs 结论段的 38%)之间的不
+   一致,作者已在 2026-07-28 明确决定保留不改(论文只需体现定性的减弱趋势,不追求
+   精确可复现的百分比)——此处仅作记录,不是本目录需要处理的问题
