@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this code, its results, or its methods, please cite the article below."
+title: "Dust Storm 2023 — Source Attribution: FLEXPART-WRF simulation code and results"
+type: software
+authors:
+  - family-names: Ren
+    given-names: Yuxiang
+    affiliation: "College of Atmospheric Sciences, Lanzhou University"
+repository-code: "https://github.com/Yuxiang-Ren-HUB/dust-storm-2023-source-attribution"
+license:
+  - MIT
+  - CC-BY-4.0
+date-released: 2026-08-05
+keywords:
+  - dust storm
+  - source attribution
+  - FLEXPART-WRF
+  - East Asia
+  - Taklimakan
+  - Gobi
+preferred-citation:
+  type: article
+  title: "Dual-Source Transport, Vertical Evolution, and Topographic Modulation of the March 2023 East Asian Dust Storm in the Context of 2000–2024 Spring Dust Variability"
+  authors:
+    - family-names: Ren
+      given-names: Yuxiang
+      affiliation: "College of Atmospheric Sciences, Lanzhou University, Lanzhou 730000, China"
+    - family-names: Huang
+      given-names: Jianhe
+      affiliation: "Ordos Meteorological Bureau, Ordos 017000, China"
+    - family-names: Duan
+      given-names: Haipeng
+      affiliation: "Ordos Meteorological Bureau, Ordos 017000, China"
+    - family-names: Liu
+      given-names: Xiaoyun
+      affiliation: "Ordos Meteorological Bureau, Ordos 017000, China"
+    - family-names: Shayimu
+      given-names: Gulisumu
+      affiliation: "Pishan County Meteorological Bureau, Guma, Hotan 845150, China"
+    - family-names: Li
+      given-names: Ruifeng
+      affiliation: "Ordos Meteorological Bureau, Ordos 017000, China"
+    - family-names: Chen
+      given-names: Ruming
+      affiliation: "College of Atmospheric Sciences, Lanzhou University, Lanzhou 730000, China"
+  journal: "Atmosphere"
+  publisher:
+    name: "MDPI"
+  volume: 17
+  issue: 8
+  start: 740
+  year: 2026
+  month: 7
+  doi: "10.3390/atmos17080740"
+  url: "https://www.mdpi.com/2073-4433/17/8/740"
+  license: CC-BY-4.0

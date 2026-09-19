@@ -31,3 +31,26 @@ records where the source data lives and how to regenerate it from the scripts.
 **Start here:** [`00_说明/README.md`](00_说明/README.md) for the full methodology, what changed
 relative to the earlier four-box scheme, and a documented open item worth checking before
 citing calibration coefficients from `source_regions.py`.
+
+## Citation
+
+If you use this code, its results, or its methods, please cite:
+
+> Ren, Y.; Huang, J.; Duan, H.; Liu, X.; Shayimu, G.; Li, R.; Chen, R. Dual-Source Transport,
+> Vertical Evolution, and Topographic Modulation of the March 2023 East Asian Dust Storm in the
+> Context of 2000–2024 Spring Dust Variability. *Atmosphere* **2026**, *17*, 740.
+> https://doi.org/10.3390/atmos17080740
+
+Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff).
+
+## License
+
+- **Code** (`02_脚本/`, `04_d02/`, and configuration files in `01_模式配置/`): MIT License, see [`LICENSE`](LICENSE).
+- **Documentation, figures, and result tables** (`00_说明/`, `05_图/`, `03_结果表/`, `06_观测数据/`):
+  [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/),
+  the same license as the published article.
+- **Third-party observations**: the `obs_pm10` column in `06_观测数据/receptor_release_plan_v3.csv`
+  is derived from publicly released air-quality monitoring data and remains subject to the
+  original provider's terms; it is not relicensed here.
+
+Copyright (c) 2026 Yuxiang Ren.
